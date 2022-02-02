@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const service = new mongoose.Schema({
+const serviceSchema = new mongoose.Schema({
   name:{type: String, required: true},
   serviceProvider: {type: mongoose.SchemaTypes.ObjectId, required: true},
   price: {type: Number, required: true},
@@ -9,4 +9,4 @@ const service = new mongoose.Schema({
 })
 
 
-module.exports.Service = mongoose.model("Service",service)
+module.exports.Service = mongoose.model("Service",serviceSchema)

@@ -7,7 +7,7 @@ const db = require("./db/db")
 const userRouter = require("./routes/routers/userRouter");
 const userTypeRouter = require("./routes/routers/userTypeRouter");
 const serviceRouter = require("./routes/routers/serviceRouter");
-
+const appointmentRouter = require("./routes/routers/appointmentRouter");
 const app = express();
 
 app.use(express.json());
@@ -17,7 +17,7 @@ app.use(cors());
 app.use("/user", userRouter);
 app.use("/userType", userTypeRouter)
 app.use("/services", serviceRouter)
-
+app.use("/appointments", appointmentRouter)
 
 const PORT = process.env.PORT || 5000;
 
