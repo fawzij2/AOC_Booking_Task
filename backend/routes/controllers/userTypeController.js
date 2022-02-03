@@ -11,7 +11,7 @@ const addType = async (req,res) => {
     })
 
     try {
-        const createdUserType = newUserType.save();
+        const createdUserType = await newUserType.save();
         res.status(201).json({
             message: "user type created",
             userType: createdUserType,

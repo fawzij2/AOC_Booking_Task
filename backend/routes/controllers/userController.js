@@ -50,14 +50,14 @@ const logIn = async (req,res) => {
 const register = async (req,res)=>{
   const {username, password, email, age, type} = req.body;
   try {
-    const foundType = await UserType.findOne(type);
+    const foundType = await UserType.findOne({type});
 
     const newUser = new User({
       username,
       password,
       email,
       age,
-      type: foundType.type,
+      type: foundType._id,
     })
 
     const savedUser = await newUser.save();
@@ -66,7 +66,7 @@ const register = async (req,res)=>{
       user: savedUser,
     })
   }catch (e) {
-    res.json(500).json({message:e.message})
+    res.status(500).json({message:e.message})
   }
 
 }
