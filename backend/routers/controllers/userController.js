@@ -26,6 +26,7 @@ const logIn = async (req,res) => {
     const payload = {
       userId: foundUser._id,
       userType: foundUser.type.type,
+      permissions: foundUser.type.permissions,
     };
 
     const options = {
@@ -36,9 +37,12 @@ const logIn = async (req,res) => {
 
     const token = await jwt.sign(payload,secret,options)
 
+
     res.status(200).json({
       message: "login successful",
       token,
+      userType:foundUser.type.type,
+      username:foundUser.username,
     })
   } catch (e) {
     res.json(500).json({message:e.message})
@@ -48,9 +52,9 @@ const logIn = async (req,res) => {
 
 
 const register = async (req,res)=>{
-  const {username, password, email, age, type} = req.body;
+  const {username, password, email, age, userType} = req.body;
   try {
-    const foundType = await UserType.findOne({type});
+    const foundType = await UserType.findOne({type:userType});
 
     const newUser = new User({
       username,
