@@ -1,0 +1,36 @@
+.accept-reject-cell{
+    display: flex;
+    justify-content: space-evenly;
+    /*width: 250px;*/
+}
+
+
+.btn-accept{
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+    width: 100px;
+
+}
+
+.btn-reject{
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+    width: 100px;
+
+}
+
+.btn-accept:hover, .btn-reject:hover{
+    cursor: pointer;
+}
+
+.btn-nav-accepted{
+    margin-top: 15px;
+    border-radius: 10px ;
+    width: 250px;
+    height: 35px;
+    background-color: #480ca8;
+    color: white;
+    font-size: 18px;
+}
