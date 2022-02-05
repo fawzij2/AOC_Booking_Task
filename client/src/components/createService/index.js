@@ -48,12 +48,12 @@ const CreateService = () => {
                 <input type="text" className="inp-primary" placeholder={"enter service price"} name="price" onChange={event => setPrice(event.target.value)}/>
 
                 <label htmlFor="description">Service description</label>
-                <input type="text" className="inp-primary" placeholder={"describe your service"} name="description" onChange={event => setDescription(event.target.value)}/>
+                <textarea className="textArea" placeholder={"describe your service"} name="description" onChange={event => setDescription(event.target.value)}/>
 
                 <label htmlFor="image">image</label>
                 <input type="text" className="inp-primary" placeholder={"enter an image link for your service"} name="image" onChange={event => setImage(event.target.value)}/>
 
-                <input type="submit" className="btn-submit" value={"Login"}/>
+                <input type="submit" className="btn-submit" value={"Complete Sign Up"}/>
             </form>
         </div>
     )

@@ -60,7 +60,7 @@ const Register = () => {
                     <option value="buyer">buyer</option>
                     <option value="seller">seller</option>
                 </select>
-                <input type="submit" className="btn-submit" value={"Login"}/>
+                <input type="submit" className="btn-submit" value={"Register"}/>
             </form>
         </div>
     )

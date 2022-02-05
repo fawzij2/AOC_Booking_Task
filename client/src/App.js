@@ -5,22 +5,31 @@ import {Route, Routes} from "react-router-dom";
 import Register from "./components/register";
 import CreateService from "./components/createService";
 import {useEffect, useState} from "react";
+import ServicesShowcase from "./components/servicesShowcase";
+import BuyerAppointments from "./components/Appointments/buyerAppointments";
+import SellerAppointments from "./components/Appointments/sellerAppointments";
+import AcceptedAppointments from "./components/Appointments/acceptedAppointments";
+import HomeRedirector from "./components/homeRedirector";
 
 
 function App() {
     const [token, setToken] = useState("");
-    const [name, setName] = useState("");
 
     useEffect(()=>{
-       setToken(JSON.stringify(sessionStorage.getItem("token")))
+       setToken(JSON.parse(sessionStorage.getItem("token")))
     },[])
     return (
         <div className="App">
-            <Navigation token={token} name={name}/>
+            <Navigation token={token} setToken={setToken}/>
             <Routes>
-                <Route path="/login" element={<Login setToken={setToken} setName={setName} />}/>
+                <Route path={"/"} element={<HomeRedirector />}/>
+                <Route path="/login" element={<Login setToken={setToken} />}/>
                 <Route path="/register" element={<Register/>} />
                 <Route path="/services/create" element={<CreateService/>} />
+                <Route path={"/services/show"} element={<ServicesShowcase />} />
+                <Route path={"appointments/buyer"} element={<BuyerAppointments />} />
+                <Route path={"appointments/seller"} element={<SellerAppointments/>} />
+                <Route path={"appointments/seller/accepted"} element={<AcceptedAppointments />} />
             </Routes>
         </div>
     );

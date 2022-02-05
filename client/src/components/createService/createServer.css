@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: 100%;
 }
 
 .service-form{
@@ -17,5 +17,10 @@
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.textArea{
+    width: 80%;
+    height: 50px;
 }
 
