@@ -21,27 +21,21 @@ const logIn = async (req,res) => {
       res.status(401).json({message: "incorrect password"})
     }
 
-    await foundUser.populate("type")
-
     const payload = {
       userId: foundUser._id,
-      userType: foundUser.type.type,
-      permissions: foundUser.type.permissions,
+      userType: foundUser.type,
     };
 
-    const options = {
-      expiresIn: "2h"
-    }
 
     const secret = process.env.SecretKey || "secretUnknown";
 
-    const token = await jwt.sign(payload,secret,options)
+    const token = await jwt.sign(payload,secret,{})
 
 
     res.status(200).json({
       message: "login successful",
       token,
-      userType:foundUser.type.type,
+      userType:foundUser.type,
       username:foundUser.username,
     })
   } catch (e) {

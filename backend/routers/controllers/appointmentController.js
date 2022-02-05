@@ -2,13 +2,14 @@ const {Appointment} = require("../../db/models/appointment");
 
 
 const addAppointment = async (req,res) => {
-    const {requestSender, serviceOwner, service, date, state} = req.body;
+    const { serviceOwner, service, date, state} = req.body;
+    const requestSender = req.token.userId
 
     const newAppointment = new Appointment({
         requestSender,
         serviceOwner,
         service,
-        date,
+        date: new Date(date),
         state
     })
     try {
@@ -52,7 +53,7 @@ const getPendingAppointmentsByServiceOwner = async (req,res) => {
     const sOwnerId = req.token.userId;
 
     try {
-        const foundAppointments = Appointment.find({
+        const foundAppointments = await Appointment.find({
             serviceOwner: sOwnerId,
             state: "pending"
         })
@@ -79,7 +80,7 @@ const getAcceptedAppointmentsByServiceOwner = async (req,res) => {
     const sOwnerId = req.token.userId;
 
     try {
-        const foundAppointments = Appointment.find({
+        const foundAppointments = await Appointment.find({
             serviceOwner: sOwnerId,
             state: "accepted"
         })
