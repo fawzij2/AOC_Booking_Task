@@ -1,0 +1,58 @@
+.appointment-component{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.table-appointment{
+    width: 90%;
+    margin-top: 20px;
+    border-collapse: collapse;
+
+}
+
+
+
+.table-appointment th{
+    border-bottom: 2px solid black;
+    border-collapse: collapse;
+}
+
+.table-appointment tr td{
+    text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+.cancel-icon:hover{
+    cursor: pointer;
+    background-color: white;
+}
+
+.icon-cell{
+    position: relative;
+    display: inline-block;
+}
+
+.icon-cell:hover .tooltip-text{
+    visibility: visible;
+}
+
+.tooltip-text{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    /*padding: 5px 0;*/
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    margin: -60px;
+    z-index: 1;
+}
